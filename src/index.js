@@ -32,9 +32,6 @@ app.use((error, req, res, next) => {
   });
 });
 
-// const fakeData = require('./fakeData');
-// fakeData();
-
 app.listen(CONFIG.port, () => {
   console.log(`Run on port:${CONFIG.port}`);
 });
