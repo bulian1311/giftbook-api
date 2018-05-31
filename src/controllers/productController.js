@@ -3,7 +3,7 @@ const Product = require('../models/productModel');
 const productController = {
   getAll: async (req, res) => {
     try {
-      const products = await {};
+      const products = await { message: 'Hello world!' };
       res.status(200).json(products);
     } catch (err) {
       res.status(400).send(err);
