@@ -1,16 +1,16 @@
 const Image = require('../models/imageModel');
 
-const imageController = {
-  getAll: async (req, res) => {
+class ImageController {
+  async getAll(req, res) {
     try {
       const images = await {};
       res.status(200).json(images);
     } catch (err) {
       res.status(400).send(err);
     }
-  },
+  }
 
-  getOne: async (req, res) => {
+  async getOne(req, res) {
     const { id } = req.params;
 
     try {
@@ -20,6 +20,6 @@ const imageController = {
       res.status(400).send(err);
     }
   }
-};
+}
 
-module.exports = imageController;
+module.exports = new ImageController();
