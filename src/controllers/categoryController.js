@@ -1,12 +1,12 @@
-const Category = require('../models/categoryModel');
+const categoryModel = require('../models/categoryModel');
 
 class CategoryController {
   async getAll(req, res) {
     try {
-      const tags = await {};
-      res.status(200).json(tags);
+      const categories = await categoryModel.find();
+      res.status(200).json(categories);
     } catch (err) {
-      res.status(400).send(err);
+      res.status(400).json({ error: err.message });
     }
   }
 
@@ -14,10 +14,10 @@ class CategoryController {
     const { id } = req.params;
 
     try {
-      const tag = await {};
-      res.status(200).json(tag);
+      const category = await categoryModel.findById(id);
+      res.status(200).json(category);
     } catch (err) {
-      res.status(400).send(err);
+      res.status(400).json({ error: err.message });
     }
   }
 }
