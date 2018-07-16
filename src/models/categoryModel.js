@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { objectId } = Schema.types;
+const { objectId } = Schema.Types;
 
 const categorySchema = Schema({
   title: { type: String, required: true },
