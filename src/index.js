@@ -9,7 +9,7 @@ const CONFIG = require('./config/config');
 
 const app = express();
 
-//DB connect
+// DB connect
 (async () => {
   try {
     await mongoose.connect(
@@ -22,13 +22,13 @@ const app = express();
   }
 })();
 
-//Middlewares
+// Middlewares
 app.use('*', cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//Routes
+// Routes
 require('./routes/index')(app);
 
 // Error handling
