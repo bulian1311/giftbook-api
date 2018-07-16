@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { objectId } = Schema.Types;
+const { ObjectId } = Schema.Types;
 
 const categorySchema = Schema({
   title: { type: String, required: true },
@@ -9,7 +9,7 @@ const categorySchema = Schema({
 
   subCategories: [
     {
-      type: objectId,
+      type: ObjectId,
       ref: 'category'
     }
   ]

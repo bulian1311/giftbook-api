@@ -20,6 +20,18 @@ class CategoryController {
       res.status(400).json({ error: err.message });
     }
   }
+
+  async create(req, res) {
+    const { title } = req.body;
+    const category = new categoryModel({ title });
+
+    try {
+      await category.save();
+      res.status(200).json(category);
+    } catch (err) {
+      res.status(400).json({ error: err.message });
+    }
+  }
 }
 
 module.exports = new CategoryController();

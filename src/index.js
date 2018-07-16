@@ -47,6 +47,9 @@ app.use((error, req, res, next) => {
   });
 });
 
+//Parse data
+require('./parser/index');
+
 app.listen(CONFIG.port, () => {
   console.log(`Run on port:${CONFIG.port}`);
 });
