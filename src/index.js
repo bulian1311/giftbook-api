@@ -3,11 +3,26 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const CONFIG = require('./config/config');
 
 const app = express();
 
+//DB connect
+(async () => {
+  try {
+    await mongoose.connect(
+      CONFIG.mongo_db,
+      { useNewUrlParser: true }
+    );
+    console.log('Mongo conect.');
+  } catch (err) {
+    console.error(err.message);
+  }
+})();
+
+//Middlewares
 app.use('*', cors());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
